@@ -1,13 +1,7 @@
 additionalProperties:
     formFields:
-        - default: ""
-          envKey: PANEL_DB_HOST
-          key: mysql
-          labelEn: Database Service
-          labelZh: 数据库服务
-          required: true
-          type: service
         - default: 8089
+          edit: true
           envKey: PANEL_APP_PORT_HTTP
           labelEn: Port
           labelZh: 端口

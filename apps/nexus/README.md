@@ -1,184 +1,37 @@
-<!--
+# Nexus Repository
 
-  Copyright (c) 2016-present Sonatype, Inc.
+Nexus Repository 是一个功能强大的软件仓库管理工具，用于支持软件开发和构建过程中的软件组件管理。
 
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
+## 主要功能：
 
-        http://www.apache.org/licenses/LICENSE-2.0
+### 存储和管理软件组件
 
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
+Nexus Repository 可以存储和管理各种软件组件，如库文件、Jar包、Docker 镜像、NPM包、Maven构建等。这使得团队能够轻松地将这些组件集中存储并进行版本控制。
 
--->
+### 代理远程仓库
 
-# Sonatype Nexus3 Docker: sonatype/nexus3
+Nexus Repository 允许代理远程仓库，以便在本地缓存远程仓库中的组件。这提高了构建速度，同时减少了对外部仓库的依赖性，提高了可用性。
 
-[![Join the chat at https://gitter.im/sonatype/nexus-developers](https://badges.gitter.im/sonatype/nexus-developers.svg)](https://gitter.im/sonatype/nexus-developers?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+### 安全和权限管理
 
-A Dockerfile for Sonatype Nexus Repository Manager 3, starting with 3.18 the image is based on the [Red Hat Universal Base Image](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image) while earlier versions used CentOS.
+Nexus Repository 提供了灵活的权限和安全控制，允许管理员为不同的用户和团队分配访问权限。这有助于保护关键的软件组件免受未经授权的访问和操纵。
 
-* [Contribution Guidlines](#contribution-guidelines)
-* [Running](#running)
-* [Building the Nexus Repository Manager image](#building-the-nexus-repository-manager-image)
-* [Chef Solo for Runtime and Application](#chef-solo-for-runtime-and-application)
-* [Testing the Dockerfile](#testing-the-dockerfile)
-* [Red Hat Certified Image](#red-hat-certified-image)
-* [Notes](#notes)
-    * [Persistent Data](#persistent-data)
-* [Getting Help](#getting-help)
+### 丰富的搜索和元数据
 
-## Contribution Guidelines
+工具提供了强大的搜索功能，以帮助用户快速找到所需的组件。此外，它还提供了丰富的元数据，帮助开发人员更好地理解和评估组件。
 
-Go read [our contribution guidelines](https://github.com/sonatype/docker-nexus3/blob/main/.github/CONTRIBUTING.md) to get a bit more familiar with how
-we would like things to flow.
+### 构建和部署支持
 
-## Running
+Nexus Repository 可以与各种构建工具和持续集成系统（如Maven、Gradle、Jenkins等）集成，从而简化了构建和部署软件的过程。
 
-To run, binding the exposed port 8081 to the host, use:
+### 定制化和扩展性
 
-```
-$ docker run -d -p 8081:8081 --name nexus sonatype/nexus3
-```
+它具有高度可定制性和扩展性，可以根据特定的团队和项目需求进行配置。用户可以编写自定义插件以扩展其功能。
 
-When stopping, be sure to allow sufficient time for the databases to fully shut down.
+### 高可用性和可伸缩性
 
-```
-docker stop --time=120 <CONTAINER_NAME>
-```
+Nexus Repository 可以部署为高可用性集群，并支持横向扩展，以满足不断增长的存储和用户需求。
 
+### 用户友好的界面
 
-To test:
-
-```
-$ curl http://localhost:8081/
-```
-
-## Building the Nexus Repository Manager image
-
-To build a docker image from the [Dockerfile](https://github.com/sonatype/docker-nexus3/blob/main/Dockerfile) you can use this command:
-
-```
-$ docker build --rm=true --tag=sonatype/nexus3 .
-```
-
-The following optional variables can be used when building the image:
-
-- NEXUS_VERSION: Version of the Nexus Repository Manager
-- NEXUS_DOWNLOAD_URL: Download URL for Nexus Repository, alternative to using `NEXUS_VERSION` to download from Sonatype
-- NEXUS_DOWNLOAD_SHA256_HASH: Sha256 checksum for the downloaded Nexus Repository Manager archive. Required if `NEXUS_VERSION`
-  or `NEXUS_DOWNLOAD_URL` is provided
-
-## Chef Solo for Runtime and Application
-
-Chef Solo is used to build out the runtime and application layers of the Docker image. The Chef cookbook being used is available
-on GitHub at [sonatype/chef-nexus-repository-manager](https://github.com/sonatype/chef-nexus-repository-manager).
-
-## Testing the Dockerfile
-
-We are using `rspec` as the test framework. `serverspec` provides a docker backend (see the method `set` in the test code)
-to run the tests inside the docker container, and abstracts away the difference between distributions in the tests
-(e.g. yum, apt,...).
-
-    rspec [--backtrace] spec/Dockerfile_spec.rb
-
-## Red Hat Certified Image
-
-A Red Hat certified container image can be created using [Dockerfile.rh.ubi](https://github.com/sonatype/docker-nexus3/blob/main/Dockerfile.rh.ubi) which is built to be compliant with Red Hat certification.
-The image includes additional meta data to comform with Kubernetes and OpenShift standards, a directory with the
-licenses applicable to the software and a man file for help on how to use the software. It also uses an ENTRYPOINT
-script the ensure the running user has access to the appropriate permissions for OpenShift 'restricted' SCC.
-
-The Red Hat certified container image is available from the
-[Red Hat Container Catalog](https://access.redhat.com/containers/#/registry.connect.redhat.com/sonatype/nexus-repository-manager)
-and qualified accounts can pull it from registry.connect.redhat.com.
-
-## Other Red Hat Images
-
-In addition to the Universal Base Image, we can build images based on:
-* Red Hat Enterprise Linux: [Dockerfile.rh.el](https://github.com/sonatype/docker-nexus3/blob/main/Dockerfile.rh.el)
-* CentOS: [Dockerfile.rh.centos](https://github.com/sonatype/docker-nexus3/blob/main/Dockerfile.rh.centos)
-
-## Notes
-
-* Our [system requirements](https://help.sonatype.com/display/NXRM3/System+Requirements) should be taken into account when provisioning the Docker container.
-* Default user is `admin` and the uniquely generated password can be found in the `admin.password` file inside the volume. See [Persistent Data](#user-content-persistent-data) for information about the volume.
-
-* It can take some time (2-3 minutes) for the service to launch in a
-  new container.  You can tail the log to determine once Nexus is ready:
-
-```
-$ docker logs -f nexus
-```
-
-* Installation of Nexus is to `/opt/sonatype/nexus`.
-
-* A persistent directory, `/nexus-data`, is used for configuration,
-  logs, and storage. This directory needs to be writable by the Nexus
-  process, which runs as UID 200.
-
-* There is an environment variable that is being used to pass JVM arguments to the startup script
-
-    * `INSTALL4J_ADD_VM_PARAMS`, passed to the Install4J startup script. Defaults to `-Xms2703m -Xmx2703m -XX:MaxDirectMemorySize=2703m -Djava.util.prefs.userRoot=${NEXUS_DATA}/javaprefs`.
-
-  This can be adjusted at runtime:
-
-  ```
-  $ docker run -d -p 8081:8081 --name nexus -e INSTALL4J_ADD_VM_PARAMS="-Xms2703m -Xmx2703m -XX:MaxDirectMemorySize=2703m -Djava.util.prefs.userRoot=/some-other-dir" sonatype/nexus3
-  ```
-
-  Of particular note, `-Djava.util.prefs.userRoot=/some-other-dir` can be set to a persistent path, which will maintain
-  the installed Nexus Repository License if the container is restarted.
-
-  Be sure to check the [memory requirements](https://help.sonatype.com/display/NXRM3/System+Requirements#SystemRequirements-MemoryRequirements) when deciding how much heap and direct memory to allocate.
-
-* Another environment variable can be used to control the Nexus Context Path
-
-    * `NEXUS_CONTEXT`, defaults to /
-
-  This can be supplied at runtime:
-
-  ```
-  $ docker run -d -p 8081:8081 --name nexus -e NEXUS_CONTEXT=nexus sonatype/nexus3
-  ```
-
-### Persistent Data
-
-There are two general approaches to handling persistent storage requirements
-with Docker. See [Managing Data in Containers](https://docs.docker.com/engine/tutorials/dockervolumes/)
-for additional information.
-
-1. *Use a docker volume*.  Since docker volumes are persistent, a volume can be created specifically for
-   this purpose.  This is the recommended approach.
-
-  ```
-  $ docker volume create --name nexus-data
-  $ docker run -d -p 8081:8081 --name nexus -v nexus-data:/nexus-data sonatype/nexus3
-  ```
-
-2. *Mount a host directory as the volume*.  This is not portable, as it
-   relies on the directory existing with correct permissions on the host.
-   However it can be useful in certain situations where this volume needs
-   to be assigned to certain specific underlying storage.
-
-  ```
-  $ mkdir /some/dir/nexus-data && chown -R 200 /some/dir/nexus-data
-  $ docker run -d -p 8081:8081 --name nexus -v /some/dir/nexus-data:/nexus-data sonatype/nexus3
-  ```
-
-## Getting Help
-
-Looking to contribute to our Docker image but need some help? There's a few ways to get information or our attention:
-
-* Chat with us on [Gitter](https://gitter.im/sonatype/nexus-developers)
-* File an issue [on our public JIRA](https://issues.sonatype.org/projects/NEXUS/)
-* Check out the [Nexus3](http://stackoverflow.com/questions/tagged/nexus3) tag on Stack Overflow
-* Check out the [Nexus Repository User List](https://groups.google.com/a/glists.sonatype.com/forum/?hl=en#!forum/nexus-users)
-
-## License Disclaimer
-
-_Nexus Repository OSS is distributed with Sencha Ext JS pursuant to a FLOSS Exception agreed upon between Sonatype, Inc. and Sencha Inc. Sencha Ext JS is licensed under GPL v3 and cannot be redistributed as part of a closed source work._
+工具提供了直观的用户界面，使管理员和开发人员能够轻松地管理和访问软件组件。

@@ -1,122 +1,44 @@
-# 使用说明
+## 账户密码
 
-控制台默认账户密码
 ```
 Email:    admin@example.com
 Password: changeme
 ```
 
+## Nginx Proxy Manager
 
-# 原始相关
+**Nginx Proxy Manager** 是一个功能强大的反向代理和Web服务器管理工具，它使您能够轻松地管理多个网站和应用程序的代理设置。
 
-<p align="center">
-	<img src="https://nginxproxymanager.com/github.png">
-	<br><br>
-	<img src="https://img.shields.io/badge/version-2.10.3-green.svg?style=for-the-badge">
-	<a href="https://hub.docker.com/repository/docker/jc21/nginx-proxy-manager">
-		<img src="https://img.shields.io/docker/stars/jc21/nginx-proxy-manager.svg?style=for-the-badge">
-	</a>
-	<a href="https://hub.docker.com/repository/docker/jc21/nginx-proxy-manager">
-		<img src="https://img.shields.io/docker/pulls/jc21/nginx-proxy-manager.svg?style=for-the-badge">
-	</a>
-</p>
+### 主要功能：
 
-This project comes as a pre-built docker image that enables you to easily forward to your websites
-running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.
+#### Web界面管理
 
-- [Quick Setup](#quick-setup)
-- [Full Setup](https://nginxproxymanager.com/setup/)
-- [Screenshots](https://nginxproxymanager.com/screenshots/)
+Nginx Proxy Manager提供了一个直观的Web界面，您可以通过该界面轻松管理您的代理设置和虚拟主机。无需深入了解Nginx配置文件的复杂性，您可以通过简单的图形界面完成所有操作。
 
-## Project Goal
+#### 反向代理
 
-I created this project to fill a personal need to provide users with a easy way to accomplish reverse
-proxying hosts with SSL termination and it had to be so easy that a monkey could do it. This goal hasn't changed.
-While there might be advanced options they are optional and the project should be as simple as possible
-so that the barrier for entry here is low.
+通过Nginx Proxy Manager，您可以设置反向代理规则，将来自外部世界的请求路由到内部服务器或应用程序。这有助于隐藏内部服务器的细节，同时提供安全的外部访问。
 
-<a href="https://www.buymeacoffee.com/jc21" target="_blank"><img src="http://public.jc21.com/github/by-me-a-coffee.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
+#### SSL证书管理
 
+该工具内置了SSL证书管理功能，您可以轻松为您的网站和应用程序添加SSL/TLS支持。这使您的网站更加安全，并提供HTTPS加密。
 
-## Features
+#### 自动DNS配置
 
-- Beautiful and Secure Admin Interface based on [Tabler](https://tabler.github.io/)
-- Easily create forwarding domains, redirections, streams and 404 hosts without knowing anything about Nginx
-- Free SSL using Let's Encrypt or provide your own custom SSL certificates
-- Access Lists and basic HTTP Authentication for your hosts
-- Advanced Nginx configuration available for super users
-- User management, permissions and audit log
+Nginx Proxy Manager可以自动为您的虚拟主机配置DNS记录，无需手动操作。这简化了域名管理并提高了效率。
 
+#### Let's Encrypt集成
 
-## Hosting your home network
+与Let's Encrypt集成使您能够轻松为您的域名生成免费的SSL/TLS证书。这是保护网站数据的重要方式。
 
-I won't go in to too much detail here but here are the basics for someone new to this self-hosted world.
+#### HTTP/HTTPS重定向
 
-1. Your home router will have a Port Forwarding section somewhere. Log in and find it
-2. Add port forwarding for port 80 and 443 to the server hosting this project
-3. Configure your domain name details to point to your home, either with a static ip or a service like DuckDNS or [Amazon Route53](https://github.com/jc21/route53-ddns)
-4. Use the Nginx Proxy Manager as your gateway to forward to your other web based services
+您可以轻松地配置HTTP到HTTPS的重定向，以确保所有的流量都是经过加密的。
 
-## Quick Setup
+#### WebSocket支持
 
-1. Install Docker and Docker-Compose
+Nginx Proxy Manager支持WebSocket协议，允许您代理WebSocket应用程序，如聊天应用或实时数据传输应用。
 
-- [Docker Install documentation](https://docs.docker.com/install/)
-- [Docker-Compose Install documentation](https://docs.docker.com/compose/install/)
+#### 访问控制和身份验证
 
-2. Create a docker-compose.yml file similar to this:
-
-```yml
-version: '3.8'
-services:
-  app:
-    image: 'jc21/nginx-proxy-manager:latest'
-    restart: unless-stopped
-    ports:
-      - '80:80'
-      - '81:81'
-      - '443:443'
-    volumes:
-      - ./data:/data
-      - ./letsencrypt:/etc/letsencrypt
-```
-
-This is the bare minimum configuration required. See the [documentation](https://nginxproxymanager.com/setup/) for more.
-
-3. Bring up your stack by running
-
-```bash
-docker-compose up -d
-
-# If using docker-compose-plugin
-docker compose up -d
-
-```
-
-4. Log in to the Admin UI
-
-When your docker container is running, connect to it on port `81` for the admin interface.
-Sometimes this can take a little bit because of the entropy of keys.
-
-[http://127.0.0.1:81](http://127.0.0.1:81)
-
-Default Admin User:
-```
-Email:    admin@example.com
-Password: changeme
-```
-
-Immediately after logging in with this default user you will be asked to modify your details and change your password.
-
-
-## Contributors
-
-Special thanks to [all of our contributors](https://github.com/NginxProxyManager/nginx-proxy-manager/graphs/contributors).
-
-
-## Getting Support
-
-1. [Found a bug?](https://github.com/NginxProxyManager/nginx-proxy-manager/issues)
-2. [Discussions](https://github.com/NginxProxyManager/nginx-proxy-manager/discussions)
-3. [Development Gitter](https://gitter.im/nginx-proxy-manager/community)
-4. [Reddit](https://reddit.com/r/nginxproxymanager)
+您可以设置访问控制规则，限制特定IP地址或网络的访问。此外，还可以启用基本身份验证来保护您的应用程序。

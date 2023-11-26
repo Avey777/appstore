@@ -1,78 +1,14 @@
-# code-server
+# Code Server
 
-[!["GitHub Discussions"](https://img.shields.io/badge/%20GitHub-%20Discussions-gray.svg?longCache=true&logo=github&colorB=purple)](https://github.com/coder/code-server/discussions) [!["Join us on Slack"](https://img.shields.io/badge/join-us%20on%20slack-gray.svg?longCache=true&logo=slack&colorB=brightgreen)](https://coder.com/community) [![Twitter Follow](https://img.shields.io/twitter/follow/CoderHQ?label=%40CoderHQ&style=social)](https://twitter.com/coderhq) [![codecov](https://codecov.io/gh/coder/code-server/branch/main/graph/badge.svg?token=5iM9farjnC)](https://codecov.io/gh/coder/code-server) [![See latest](https://img.shields.io/static/v1?label=Docs&message=see%20latest&color=blue)](https://coder.com/docs/code-server/latest)
+Code Server 是一款强大的开源工具，它将 [Visual Studio Code (VS Code)](https://code.visualstudio.com/) 带入了基于Web的在线环境。它使您可以通过Web浏览器远程访问和使用VS Code的功能，而无需在本地安装VS Code应用程序。
 
-Run [VS Code](https://github.com/Microsoft/vscode) on any machine anywhere and
-access it in the browser.
+## 主要功能：
 
-![Screenshot](https://raw.githubusercontent.com/coder/code-server/main/docs/assets/screenshot.png)
-
-## Highlights
-
-- Code on any device with a consistent development environment
-- Use cloud servers to speed up tests, compilations, downloads, and more
-- Preserve battery life when you're on the go; all intensive tasks run on your
-  server
-
-## Requirements
-
-See [requirements](https://coder.com/docs/code-server/latest/requirements) for minimum specs, as well as instructions
-on how to set up a Google VM on which you can install code-server.
-
-**TL;DR:** Linux machine with WebSockets enabled, 1 GB RAM, and 2 vCPUs
-
-## Getting started
-
-There are four ways to get started:
-
-1. Using the [install
-   script](https://github.com/coder/code-server/blob/main/install.sh), which
-   automates most of the process. The script uses the system package manager if
-   possible.
-2. Manually [installing
-   code-server](https://coder.com/docs/code-server/latest/install)
-3. Deploy code-server to your team with [coder/coder](https://cdr.co/coder-github)
-4. Using our one-click buttons and guides to [deploy code-server to a cloud
-   provider](https://github.com/coder/deploy-code-server) ⚡
-
-If you use the install script, you can preview what occurs during the install
-process:
-
-```bash
-curl -fsSL https://code-server.dev/install.sh | sh -s -- --dry-run
-```
-
-To install, run:
-
-```bash
-curl -fsSL https://code-server.dev/install.sh | sh
-```
-
-When done, the install script prints out instructions for running and starting
-code-server.
-
-> **Note**
-> To manage code-server for a team on your infrastructure, see: [coder/coder](https://cdr.co/coder-github)
-
-We also have an in-depth [setup and
-configuration](https://coder.com/docs/code-server/latest/guide) guide.
-
-## Questions?
-
-See answers to [frequently asked
-questions](https://coder.com/docs/code-server/latest/FAQ).
-
-## Want to help?
-
-See [Contributing](https://coder.com/docs/code-server/latest/CONTRIBUTING) for
-details.
-
-## Hiring
-
-Interested in [working at Coder](https://coder.com/careers)? Check out [our open
-positions](https://coder.com/careers#openings)!
-
-## For Organizations
-
-Want remote development for your organization or enterprise? Visit [our
-website](https://coder.com) to learn more about Coder.
+- **远程开发**：Code Server 允许您从任何地方使用Web浏览器访问您的开发环境。这意味着您可以在不同设备和操作系统上一致地编写、编辑和运行代码。
+- **轻量级**：Code Server 是一个轻量级的应用程序，资源占用较少，因此在资源有限的服务器上运行也很高效。这使得它成为为团队提供统一的开发环境或在云中进行开发的理想工具。
+- **丰富的扩展生态系统**：您可以安装并使用VS Code的广泛扩展库，从而扩展编辑器的功能。这包括语言支持、主题、代码片段和工作流程自动化等方面。
+- **多语言支持**：Code Server 提供了广泛的编程语言支持，包括JavaScript、Python、Java、C++等。您可以在一个统一的开发环境中处理多种编程任务。
+- **集成终端**：它内置了一个终端，让您可以在同一界面中执行命令、安装依赖和运行应用程序。
+- **版本控制**：集成了版本控制系统（如Git），使您可以轻松地管理和跟踪代码更改。
+- **团队协作**：Code Server 允许多个开发人员同时协作，通过共享工作区和代码库来增强团队协作能力。
+- **自定义设置**：您可以根据自己的需求自定义编辑器的设置，包括主题、快捷键和工作区配置。
