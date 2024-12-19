@@ -1,20 +1,19 @@
-name: frpc-frp 客户端
+name: frp 客户端
 tags:
     - 实用工具
-title: 反向代理工具，常用于内网穿透(客户端)
-type: 实用工具
-description: 反向代理工具，常用于内网穿透(客户端)
+title: 专注于内网穿透的高性能反向代理应用
+description: 专注于内网穿透的高性能反向代理应用
 additionalProperties:
     key: frpc
-    name: frpc-frp 客户端
+    name: frp 客户端
     tags:
         - Tool
-    shortDescZh: 反向代理工具，常用于内网穿透(客户端)
-    shortDescEn: A reverse proxy tool that is commonly used for intranet penetration(Client)
+    shortDescZh: 专注于内网穿透的高性能反向代理应用
+    shortDescEn: High-performance reverse proxy application focused on intranet penetration
     type: tool
     crossVersionUpdate: true
     limit: 0
-    recommend: 0
+    recommend: 40
     website: https://github.com/fatedier/frp
     github: https://github.com/fatedier/frp
     document: https://github.com/fatedier/frp/blob/dev/README_zh.md

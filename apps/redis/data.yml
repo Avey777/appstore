@@ -2,7 +2,6 @@ name: Redis
 tags:
     - 数据库
 title: 高性能的开源键值数据库
-type: 数据库
 description: 高性能的开源键值数据库
 additionalProperties:
     key: redis
@@ -10,11 +9,11 @@ additionalProperties:
     tags:
         - Database
     shortDescZh: 高性能的开源键值数据库
-    shortDescEn: High-performance key-value database
+    shortDescEn: High-performance open-source key-value database
     type: runtime
     crossVersionUpdate: true
-    limit: 1
-    recommend: 4
+    limit: 0
+    recommend: 15
     website: https://redis.io/
     github: https://github.com/redis/redis
     document: https://redis.io/docs/

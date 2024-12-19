@@ -1,0 +1,84 @@
+additionalProperties:
+  formFields:
+    - default: ""
+      edit: true
+      envKey: DISCOURSE_HOST
+      labelEn: HOST
+      labelZh: 访问域名
+      required: true
+      type: text
+    - default: 3000
+      envKey: PANEL_APP_PORT_HTTP
+      labelEn: Port
+      labelZh: HTTP 端口
+      required: true
+      rule: paramPort
+      type: number
+    - default: admin
+      disabled: true
+      envKey: DISCOURSE_USERNAME
+      labelEn: Admin User
+      labelZh: 管理员
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: DISCOURSE_EMAIL
+      labelEn: email
+      labelZh: 管理员邮箱
+      required: true
+      type: text
+    - default: ""
+      edit: true
+      envKey: DISCOURSE_PASSWORD
+      labelEn: password(must length > 10)
+      labelZh: 管理员密码(长度必须>10)
+      required: true
+      type: password
+      rule: paramCommon
+    - default: ""
+      envKey: PANEL_DB_HOST
+      key: postgresql
+      labelEn: postgresql Database Service
+      labelZh: postgresql数据库服务
+      required: true
+      type: service
+    - default: discourse
+      envKey: PANEL_DB_NAME
+      labelEn: Database
+      labelZh: 数据库名
+      random: true
+      required: true
+      rule: paramCommon
+      type: text
+    - default: discourse
+      envKey: PANEL_DB_USER
+      labelEn: User
+      labelZh: 数据库用户
+      random: true
+      required: true
+      rule: paramCommon
+      type: text
+    - default: discourse
+      envKey: PANEL_DB_USER_PASSWORD
+      labelEn: Password
+      labelZh: 数据库用户密码
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password
+    - default: ""
+      envKey: PANEL_REDIS_HOST
+      key: redis
+      labelEn: Redis Service
+      labelZh: redis 服务
+      required: true
+      type: service
+    - default: ""
+      envKey: PANEL_REDIS_ROOT_PASSWORD
+      labelEn: Password
+      labelZh: redis 密码
+      random: true
+      required: true
+      rule: paramComplexity
+      type: password

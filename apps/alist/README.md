@@ -1,11 +1,14 @@
 
 # 账号密码
 
-容器列表点击 `终端` 按钮，进入容器内执行 `./alist admin` 命令获取密码。
+容器列表点击 `终端` 按钮，进入容器内执行命令设置密码。
 
-# Alist
+- **生成随机密码**：`./alist admin random`
+- **手动设置密码**：`./alist admin set NEW_PASSWORD`
 
-Alist 是一个支持多种存储，支持网页浏览和 WebDAV 的文件列表程序，由 gin 和 Solidjs 驱动。
+# AList
+
+AList 是一个支持多种存储，支持网页浏览和 WebDAV 的文件列表程序，由 gin 和 Solidjs 驱动。
 
 ## 支持的存储：
 

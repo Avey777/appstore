@@ -2,7 +2,6 @@ name: MySQL
 tags:
     - 数据库
 title: MySQL 开源关系型数据库
-type: 数据库
 description: MySQL 开源关系型数据库
 additionalProperties:
     key: mysql
@@ -14,7 +13,7 @@ additionalProperties:
     type: runtime
     crossVersionUpdate: false
     limit: 0
-    recommend: 2
+    recommend: 5
     website: https://www.mysql.com
     github: https://github.com/mysql/mysql-server
     document: https://dev.mysql.com/doc/

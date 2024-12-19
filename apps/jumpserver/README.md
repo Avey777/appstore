@@ -1,3 +1,8 @@
+# 默认账户密码
+
+用户名：`admin`
+密码：v3 版本默认密码为 `admin`，v4 版本默认密码为 `ChangeMe`
+
 # JumpServer
 
 JumpServer 是广受欢迎的开源堡垒机，是符合 4A 规范的专业运维安全审计系统。JumpServer 堡垒机帮助企业以更安全的方式管控和登录各种类型的资产，包括：

@@ -85,7 +85,49 @@ fi
 
 if [[ -z "${EXTENSIONS##*,sourceguardian,*}" ]]; then
     echo "---------- Install sourceguardian ----------"
+    apk add eudev-libs
 	  install-php-extensions sourceguardian
+fi
+
+if [[ -z "${EXTENSIONS##*,ssh2,*}" ]]; then
+    echo "---------- Install ssh2 ----------"
+	  install-php-extensions ssh2
+fi
+
+if [[ -z "${EXTENSIONS##*,maxminddb,*}" ]]; then
+    echo "---------- Install maxminddb ----------"
+	  install-php-extensions maxminddb
+fi
+
+if [[ -z "${EXTENSIONS##*,zstd,*}" ]]; then
+    echo "---------- Install zstd ----------"
+	  install-php-extensions zstd
+fi
+
+if [[ -z "${EXTENSIONS##*,grpc,*}" ]]; then
+    echo "---------- Install grpc ----------"
+	  install-php-extensions grpc
+	  docker-php-ext-enable grpc
+fi
+
+if [[ -z "${EXTENSIONS##*,ftp,*}" ]]; then
+    echo "---------- Install ftp ----------"
+	  install-php-extensions ftp
+fi
+
+if [[ -z "${EXTENSIONS##*,snuffleupagus,*}" ]]; then
+    echo "---------- Install snuffleupagus ----------"
+	  install-php-extensions snuffleupagus
+fi
+
+if [[ -z "${EXTENSIONS##*,pdo_oci,*}" ]]; then
+    echo "---------- Install pdo_oci ----------"
+	 install-php-extensions  pdo_oci
+fi
+
+if [[ -z "${EXTENSIONS##*,oci8,*}" ]]; then
+    echo "---------- Install oci8 ----------"
+   install-php-extensions oci8
 fi
 # end
 
@@ -176,11 +218,6 @@ if [[ -z "${EXTENSIONS##*,pdo_dblib,*}" ]]; then
 	docker-php-ext-install ${MC} pdo_dblib
 fi
 
-if [[ -z "${EXTENSIONS##*,pdo_oci,*}" ]]; then
-    echo "---------- Install pdo_oci ----------"
-	docker-php-ext-install ${MC} pdo_oci
-fi
-
 if [[ -z "${EXTENSIONS##*,pdo_odbc,*}" ]]; then
     echo "---------- Install pdo_odbc ----------"
 	docker-php-ext-install ${MC} pdo_odbc
@@ -196,11 +233,6 @@ if [[ -z "${EXTENSIONS##*,pgsql,*}" ]]; then
     echo "---------- Install pgsql ----------"
     apk --no-cache add postgresql-dev \
     && docker-php-ext-install ${MC} pgsql
-fi
-
-if [[ -z "${EXTENSIONS##*,oci8,*}" ]]; then
-    echo "---------- Install oci8 ----------"
-	docker-php-ext-install ${MC} oci8
 fi
 
 if [[ -z "${EXTENSIONS##*,odbc,*}" ]]; then
@@ -395,18 +427,6 @@ if [[ -z "${EXTENSIONS##*,igbinary,*}" ]]; then
 fi
 
 
-if [[ -z "${EXTENSIONS##*,ssh2,*}" ]]; then
-    isPhpVersionGreaterOrEqual 7 0
-    if [[ "$?" = "1" ]]; then
-        echo "---------- Install ssh2 ----------"
-        printf "\n" | apk add libssh2-dev
-        pecl install ssh2-1.1.2
-        docker-php-ext-enable ssh2
-    else
-        echo "ssh2 requires PHP >= 7.0.0, installed version is ${PHP_VERSION}"
-    fi
-fi
-
 if [[ -z "${EXTENSIONS##*,protobuf,*}" ]]; then
     isPhpVersionGreaterOrEqual 7 0
     if [[ "$?" = "1" ]]; then
@@ -471,11 +491,7 @@ if [[ -z "${EXTENSIONS##*,pdo_sqlsrv,*}" ]]; then
     isPhpVersionGreaterOrEqual 7 1
     if [[ "$?" = "1" ]]; then
         echo "---------- Install pdo_sqlsrv ----------"
-        apk add --no-cache unixodbc-dev
-        printf "\n" | pecl install pdo_sqlsrv
-        docker-php-ext-enable pdo_sqlsrv
-        curl -o /tmp/msodbcsql17_amd64.apk https://download.microsoft.com/download/e/4/e/e4e67866-dffd-428c-aac7-8d28ddafb39b/msodbcsql17_17.5.2.1-1_amd64.apk
-        apk add --allow-untrusted /tmp/msodbcsql17_amd64.apk
+        install-php-extensions pdo_sqlsrv
     else
         echo "pdo_sqlsrv requires PHP >= 7.1.0, installed version is ${PHP_VERSION}"
     fi
@@ -485,11 +501,9 @@ if [[ -z "${EXTENSIONS##*,sqlsrv,*}" ]]; then
     isPhpVersionGreaterOrEqual 7 1
     if [[ "$?" = "1" ]]; then
         echo "---------- Install sqlsrv ----------"
-        apk add --no-cache unixodbc-dev
-        printf "\n" | pecl install sqlsrv
-        docker-php-ext-enable sqlsrv
+        install-php-extensions sqlsrv
     else
-        echo "pdo_sqlsrv requires PHP >= 7.1.0, installed version is ${PHP_VERSION}"
+        echo "sqlsrv requires PHP >= 7.1.0, installed version is ${PHP_VERSION}"
     fi
 fi
 

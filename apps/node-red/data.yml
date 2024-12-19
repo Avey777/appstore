@@ -1,0 +1,19 @@
+name: Node-RED
+tags:
+  - 实用工具
+title: 用于事件驱动应用的低代码编程
+description: 用于事件驱动应用的低代码编程
+additionalProperties:
+  key: node-red
+  name: Node-RED
+  tags:
+    - Tool
+  shortDescZh: 用于事件驱动应用的低代码编程
+  shortDescEn: Low-code programming for event-driven applications
+  type: tool
+  crossVersionUpdate: true
+  limit: 0
+  recommend: 0
+  website: https://nodered.org/
+  github: https://github.com/node-red/node-red
+  document: https://nodered.org/docs/
