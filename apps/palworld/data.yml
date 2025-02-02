@@ -10,10 +10,18 @@ additionalProperties:
         - Game
     shortDescZh: 幻兽帕鲁服务端
     shortDescEn: Palworld Dedicated Server
+    description:
+        en: Palworld Dedicated Server
+        ja: Palworld 専用サーバー
+        ms: Pelayan Dedikasi Palworld
+        pt-br: Servidor dedicado Palworld
+        ru: Выделенный сервер Palworld
+        zh-hant: Palworld 專用伺服器
+        zh: 幻兽帕鲁服务端
     type: tool
     crossVersionUpdate: true
     limit: 0
     recommend: 0
-    website: https://hub.docker.com/r/kagurazakanyaa/palworld
-    github: https://github.com/KagurazakaNyaa/palworld-docker
-    document: https://github.com/KagurazakaNyaa/palworld-docker
+    website: https://hub.docker.com/r/thijsvanloef/palworld-server-docker
+    github: https://github.com/thijsvanloef/palworld-server-docker
+    document: https://palworld-server-docker.loef.dev/
