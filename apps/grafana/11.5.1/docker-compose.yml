@@ -1,14 +1,15 @@
 services:
-  bitwarden:
+  grafana:
     container_name: ${CONTAINER_NAME}
+    image: grafana/grafana:11.5.1
     restart: always
+    user: '0'
     networks:
       - 1panel-network
     ports:
-      - "${PANEL_APP_PORT_HTTP}:80"
+      - "${PANEL_APP_PORT_HTTP}:3000"
     volumes:
-      - ./data:/data
-    image: vaultwarden/server:1.33.0-alpine
+      - ./data:/var/lib/grafana
     labels:  
       createdBy: "Apps"
 networks:  
