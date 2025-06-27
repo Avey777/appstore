@@ -17,7 +17,7 @@ additionalProperties:
         pt-br: Ambiente de execução PHP8
         ru: Среда выполнения PHP8
         ko: PHP8 런타임
-        zh-hant: PHP8 運行環境
+        zh-hant: PHP8 執行環境
         zh: PHP8 运行环境
     type: php
     crossVersionUpdate: false
@@ -26,3 +26,10 @@ additionalProperties:
     website: https://www.php.net/
     github: https://github.com/php/php-src
     document: https://www.php.net/docs.php
+    deprecated: 2.0
+    architectures:
+        - amd64
+        - arm64
+        - arm/v7
+        - s390x
+        - ppc64le

@@ -19,10 +19,14 @@ additionalProperties:
         ko: Nextcloud 서버, 모든 데이터의 안전한 집
         zh-Hant: Nextcloud 伺服器，所有資料的安全之家
         zh: Nextcloud 服务器，所有数据的安全之家
-    type: tool
+    type: website
     crossVersionUpdate: true
     limit: 0
     recommend: 0
     website: https://nextcloud.com/
     github: https://github.com/nextcloud/server
     document: https://docs.nextcloud.com/
+    memoryRequired: 1024
+    architectures:
+      - amd64
+      - arm64

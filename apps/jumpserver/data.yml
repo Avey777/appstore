@@ -1,6 +1,6 @@
 name: JumpServer
 tags:
-    - 安全
+  - 安全
 title: JumpServer 开源堡垒机
 description: JumpServer 开源堡垒机
 additionalProperties:
@@ -19,10 +19,14 @@ additionalProperties:
     ko: 세계 최초의 오픈 소스 Bastion Host
     zh-Hant: 全球首個開源堡壘主機
     zh: 广受欢迎的开源堡垒机
-  type: tool
+  type: website
   crossVersionUpdate: false
   limit: 1
   recommend: 50
   website: https://www.jumpserver.org
   github: https://github.com/jumpserver/jumpserver
   document: https://docs.jumpserver.org
+  memoryRequired: 8192
+  architectures:
+    - amd64
+    - arm64

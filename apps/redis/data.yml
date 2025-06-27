@@ -7,7 +7,7 @@ additionalProperties:
     key: redis
     name: Redis
     tags:
-        - Database
+      - Database
     shortDescZh: 高性能的开源键值数据库
     shortDescEn: High-performance open-source key-value database
     description:
@@ -20,9 +20,16 @@ additionalProperties:
         zh-hant: 高性能開源鍵值資料庫
         zh: 高性能的开源键值数据库
     type: runtime
-    crossVersionUpdate: true
+    crossVersionUpdate: false
     limit: 0
     recommend: 15
     website: https://redis.io/
     github: https://github.com/redis/redis
     document: https://redis.io/docs/
+    architectures:
+      - amd64
+      - arm/v5
+      - arm/v7
+      - arm64
+      - ppc64le
+      - s390x

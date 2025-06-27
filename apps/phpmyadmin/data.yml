@@ -19,10 +19,16 @@ additionalProperties:
         ko: MySQL 및 MariaDB를 위한 웹 인터페이스
         zh-hant: MySQL 和 MariaDB 的網頁介面
         zh: MySQL 和 MariaDB 的 Web 界面
-    type: tool
+    type: website
     crossVersionUpdate: true
     limit: 1
     recommend: 30
     website: https://www.phpmyadmin.net/
     github: https://github.com/phpmyadmin/phpmyadmin
     document: https://www.phpmyadmin.net/docs/
+    architectures:
+        - amd64
+        - arm/v7
+        - arm64
+        - ppc64le
+        - s390x

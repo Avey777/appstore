@@ -10,10 +10,13 @@ additionalProperties:
     - DevOps
   shortDescZh: 敏捷（scrum）项目管理系统/工具，永久免费升级
   shortDescEn: An agile(scrum) project management system/tool,
-  type: tool
+  type: website
   crossVersionUpdate: true
   limit: 0
   recommend: 75
   website: https://www.zentao.net/index.html
   github: https://github.com/easysoft/zentaopms
   document: https://www.zentao.net/book/zentaopms/38.html
+  architectures:
+    - amd64
+    - arm64
